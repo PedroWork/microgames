@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Microgames</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <a href="../index.html"><i class="fas fa-home"></i>Home</a>
+            <a class="active" href="./pages/posts.html"><i class="fas fa-blog"></i>Post</a>
+            <a href="./about.html"><i class="fas fa-industry"></i>Empresa</a>
+            <a href="./register.html"><i class="far fa-user"></i>Cadastro</a>
+            <a href="./login.html"><i class="fas fa-sign-in-alt"></i>Login</a>
+        </div>
+        <form>
+            <label for="textin">Nome:</label>
+            <input type="text" id="textin" placeholder="Joana Maria..." required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" placeholder="me@mail.com" required>
+
+            <label for="passagemdemundo">Senha:</label>
+            <input type="password" id="passagemdemundo" placeholder="********" minlength="8" required>
+    
+            <label for="confiapassagemdemundo">Comfirmar senha:</label>
+            <input type="password" id="confiapassagemdemundo" placeholder="********" minlength="8" required>
+    
+            <label for="nascimento">Nome:</label>
+            <input type="date" id="nascimento" placeholder="00/00/0000" required>
+    
+            <label for="lua">Rua:</label>
+            <input type="text" id="lua" placeholder="Rua Mãe Joana" required>
+
+            <label for="nunber">Numero da Residencia:</label>
+            <input type="number" id="nunber" placeholder="980" required>
+    
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" placeholder="São Paulo" required>
+
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" placeholder="Jardim Nova Joana" required>
+
+            <label for="Cep">Cep:</label>
+            <input type="text" id="Cep" placeholder="********" minlength="8" maxlength="8" required>
+
+            <label for="comp">Complemento:</label>
+            <input type="text" id="comp" placeholder="" required>
+            
+            <button class="btn btn-signup">Cadastro</button>
+        </form>
+    </div>
+</body>
+</html>
