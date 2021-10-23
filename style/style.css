@@ -48,7 +48,7 @@ body {
     border-left: 25px solid #3498db;
 }
 
-.menu a:hover{
+.menu .menu-item:hover{
     background-color: #34495e;
     transition: all 500ms ease-in-out;
     border-left: 25px solid #3498db;
@@ -64,6 +64,12 @@ body {
     padding: 25px;
     background-color: #FFF;
 }
+
+.content p{
+    text-align: justify;
+    line-height: 20px;
+}
+
 
 h2, h3 {
     margin-top: 25px;
@@ -87,8 +93,27 @@ h1, h2 {
 
 .posts .post-card .post-cover img{
     width: 100%;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
+}
+
+.read-more-btn{
+    display: block;
+    margin: 0 auto;
+    background-color: #2c3e50;
+    text-decoration: none;
+    width: 100px;
+    margin-top: 20px;
+    color: white;
+}
+
+.post-info{
+    margin-top: 20px;
+}
+
+h3 {
+    margin-bottom: 25px;
+    text-align: center;
 }
 
 .login {
@@ -209,14 +234,136 @@ h1, h2 {
     border-radius: 3px;
 }
 
+.social-share-btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #2c3e50;
+}
+
+.blog-post-footer{
+    width: 800px;
+    margin: 0 auto;
+}
+
 .login-button {
     background-color: #2c3e50;
+}
+
+.btn-register{
+    margin-top: 20px;
 }
 
 .message-button {
     background-color: #3498db;
     display: block;
     margin: 0 auto;
+}
+
+.blog-post-autor-photo{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.blog-post-header{
+    width: 800px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.blog-post-info{
+    display: flex;
+    align-items: center;
+}
+
+.blog-post-cover{
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.blog-post{
+    width: 800px;
+    margin: 0 auto;
+    line-height: 26px;
+    text-align: justify;
+}
+
+.blog-post img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.blog-post img, .blog-post p{
+    margin-bottom: 20px;
+}
+
+.register-form .input-style{
+    border: 1px black solid;
+}
+
+.name-register{
+    max-height: 45%;
+    display: flex;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.name-register label{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.menu-logo img{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 100%;
+}
+
+.menu .menu-logo{
+    font-weight: 900;
+    border-left: 0px;
+    background-color: #1B1464;
+}
+
+.blog-post-actions{
+    display: flex;
+    justify-content: space-between;
+}
+
+.blog-post-tags {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.blog-post-tags p{
+    margin-right: 10px;
+}
+
+.blog-post-tags a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    background-color: #2c3e50;
+    border-radius: 3px;
+}
+
+.blog-post-actions button{
+    background-color: #2c3e50;
+}
+
+.blog-post-info *{
+    margin-right: 10px;
 }
 
 @media screen and (max-width: 800px) {

@@ -6,54 +6,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+    
+        function limpa_formulario_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua').value=("");
+                document.getElementById('bairro').value=("");
+                document.getElementById('cidade').value=("");
+                document.getElementById('uf').value=("");
+        }
+    
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value=(conteudo.logradouro);
+                document.getElementById('bairro').value=(conteudo.bairro);
+                document.getElementById('cidade').value=(conteudo.localidade);
+                document.getElementById('uf').value=(conteudo.uf)
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulario_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+            
+        function pesquisacep(valor) {
+    
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+    
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+    
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+    
+                //Valida o formato do CEP.
+                if(validacep.test(cep)) {
+    
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value="...";
+                    document.getElementById('bairro').value="...";
+                    document.getElementById('cidade').value="...";
+                    document.getElementById('uf').value="...";
+    
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+    
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+    
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+    
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulario_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulario_cep();
+            }
+        };
+    
+        </script>
     <title>Microgames</title>
 </head>
 <body>
     <div class="container">
         <div class="menu">
-            <a href="../index.html"><i class="fas fa-home"></i>Home</a>
-            <a href="./posts.html"><i class="fas fa-blog"></i>Post</a>
-            <a href="./about.html"><i class="fas fa-industry"></i>Empresa</a>
-            <a class="active" href="./register.html"><i class="far fa-user"></i>Cadastro</a>
-            <a href="./login.html"><i class="fas fa-sign-in-alt"></i>Login</a>
+            <a class="menu-logo" href="../index.html"><img src="../img/logo ps4.jpg" alt=""> Microgames</a>
+            <a class="menu-item" href="../index.html"><i class="fas fa-blog"></i>Posts</a>
+            <a class="menu-item" href="./about.html"><i class="fas fa-industry"></i>Empresa</a>
+            <a class="menu-item active" href="./register.html"><i class="far fa-user"></i>Cadastro</a>
+            <a class="menu-item" href="./login.html"><i class="fas fa-sign-in-alt"></i>Login</a>
 
         </div>
-        <form>
-            <label for="textin">Nome:</label>
-            <input type="text" id="textin" placeholder="Joana Maria..." required>
+        <div class="content">
+            <div class="fields">
+                <h1>Cadastro</h1>               
+                <form class="field-block">
+                    <h2>Informações digitais</h2>
 
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" placeholder="me@mail.com" required>
+                    <label for="email">E-mail:</label>
+                    <input class="input-style" type="email" id="email" placeholder="me@mail.com" required>
+                    
+                    <label for="passagemdemundo">Senha:</label>
+                    <input class="input-style" type="password" id="passagemdemundo" placeholder="********" minlength="8" required>
+                    
+                    <label for="confiapassagemdemundo">Comfirmar senha:</label>
+                    <input class="input-style" type="password" id="confiapassagemdemundo" placeholder="********" minlength="8" required>
+                    
+                    <h2>Informações Pessoais</h2>
 
-            <label for="passagemdemundo">Senha:</label>
-            <input type="password" id="passagemdemundo" placeholder="********" minlength="8" required>
+                    <div class="name-register">
+                        <label for="textin">Nome:</label>
+                        <input class="input-style" type="text" id="textin" placeholder="Joana Maria..." required>
     
-            <label for="confiapassagemdemundo">Comfirmar senha:</label>
-            <input type="password" id="confiapassagemdemundo" placeholder="********" minlength="8" required>
-    
-            <label for="nascimento">Nome:</label>
-            <input type="date" id="nascimento" placeholder="00/00/0000" required>
-    
-            <label for="lua">Rua:</label>
-            <input type="text" id="lua" placeholder="Rua Mãe Joana" required>
-
-            <label for="nunber">Numero da Residencia:</label>
-            <input type="number" id="nunber" placeholder="980" required>
-    
-            <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" placeholder="São Paulo" required>
-
-            <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" placeholder="Jardim Nova Joana" required>
-
-            <label for="Cep">Cep:</label>
-            <input type="text" id="Cep" placeholder="********" minlength="8" maxlength="8" required>
-
-            <label for="comp">Complemento:</label>
-            <input type="text" id="comp" placeholder="" required>
+                        <label for="textin">Sobrenome:</label>
+                        <input class="input-style" type="text" id="textin" placeholder="...Silva Santos" required>
+                    </div>
+                    
+                    <label for="nascimento">Data de nascimento:</label>
+                    <input class="input-style" type="date" id="nascimento" placeholder="00/00/0000" required>
+                        
+                    <label for="cep">Cep:</label>
+                    <input class="input-style" type="text" id="cep" placeholder="********" minlength="8" maxlength="8" required onblur="pesquisacep(this.value);">
+        
+                    <label for="rua">Rua:</label>
+                    <input class="input-style" type="text" id="rua" placeholder="Rua Mãe Joana" required>
+        
+                    <label for="nunber">Numero da Residencia:</label>
+                    <input class="input-style" type="number" id="nunber" placeholder="980" required>
             
-            <button class="btn btn-signup">Cadastro</button>
-        </form>
+                    <label for="cidade">Cidade:</label>
+                    <input class="input-style" type="text" id="cidade" placeholder="São Paulo" required>
+        
+                    <label for="bairro">Bairro:</label>
+                    <input class="input-style" type="text" id="bairro" placeholder="Jardim Nova Joana" required>
+        
+                    <label for="uf">Estado:</label>
+                    <input class="input-style" type="text" id="uf" placeholder="SP" required>
+        
+                    <label for="comp">Complemento:</label>
+                    <input class="input-style" type="text" id="comp" placeholder="" required>
+                    
+                    <button class="btn btn-register login-button">Cadastro</button>
+                </form>
+            </div>
+        </div>
+        
     </div>
 </body>
 </html>
